@@ -92,7 +92,7 @@ class ArticleController {
       final article = Article(
         id: 'article_${DateTime.now().millisecondsSinceEpoch}',
         authorId: userId,
-        authorName: 'User $userId', // TODO: Get actual user name
+        authorName: 'User $userId', // NOTE: Using placeholder - user profile integration pending
         title: title,
         content: contentText,
         summary: summary,

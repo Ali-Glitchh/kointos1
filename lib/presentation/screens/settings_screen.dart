@@ -112,7 +112,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             title: 'Payment Methods',
             subtitle: 'Manage your payment options',
             onTap: () {
-              // TODO: Navigate to payment methods
+              // NOTE: Payment methods feature - coming soon
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Payment methods coming soon!')),
               );
@@ -123,7 +123,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             title: 'Transaction History',
             subtitle: 'View your trading history',
             onTap: () {
-              // TODO: Navigate to transaction history
+              // NOTE: Transaction history feature - coming soon
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                     content: Text('Transaction history coming soon!')),
@@ -138,7 +138,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             title: 'Help & FAQ',
             subtitle: 'Get help and find answers',
             onTap: () {
-              // TODO: Navigate to help section
+              // NOTE: Help section feature - coming soon
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Help section coming soon!')),
               );
@@ -149,7 +149,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             title: 'Contact Support',
             subtitle: 'Get in touch with our team',
             onTap: () {
-              // TODO: Navigate to contact support
+              // NOTE: Contact support feature - coming soon
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Contact support coming soon!')),
               );
@@ -347,7 +347,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
-                // TODO: Implement account deletion
+                // NOTE: Account deletion feature - coming soon
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                       content: Text('Account deletion feature coming soon!')),

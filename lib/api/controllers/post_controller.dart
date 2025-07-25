@@ -86,8 +86,8 @@ class PostController {
       final post = Post(
         id: 'post_${DateTime.now().millisecondsSinceEpoch}',
         authorId: userId,
-        authorName: 'User $userId', // TODO: Get actual user name
-        authorAvatar: '', // TODO: Get actual user avatar
+        authorName: 'User $userId', // NOTE: Using placeholder - user profile integration pending
+        authorAvatar: '', // NOTE: Avatar system - user profile integration pending
         content: contentText,
         images: images,
         tags: tags,

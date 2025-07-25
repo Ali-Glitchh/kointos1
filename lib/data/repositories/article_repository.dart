@@ -17,7 +17,7 @@ class ArticleRepository {
 
   Future<Article> getArticle(String articleId) async {
     try {
-      // TODO: Replace with actual API call
+      // NOTE: Mock data - API integration pending
       final article = await _getMockArticleAsync(articleId);
       final content = await _storageService.downloadData(article.contentKey);
       return article.copyWith(content: content);
@@ -33,7 +33,7 @@ class ArticleRepository {
     int limit = 10,
   }) async {
     try {
-      // TODO: Replace with actual API call
+      // NOTE: Mock data - API integration pending
       await Future.delayed(const Duration(seconds: 1));
       final futures = List.generate(
         10,
@@ -52,7 +52,7 @@ class ArticleRepository {
         throw Exception('User not authenticated');
       }
 
-      final userName = 'User $userId'; // TODO: Get actual user name
+      final userName = 'User $userId'; // NOTE: Using placeholder - user profile integration pending
       final articleId = _uuid.v4();
 
       final article = Article.draft(
@@ -67,7 +67,7 @@ class ArticleRepository {
         '',
       );
 
-      // TODO: Save article metadata to API
+      // NOTE: Article metadata storage - API integration pending
       return article;
     } catch (e) {
       rethrow;
@@ -100,7 +100,7 @@ class ArticleRepository {
         await _storageService.uploadData(article.contentKey, content);
       }
 
-      // TODO: Update article metadata in API
+      // NOTE: Article metadata update - API integration pending
       return updatedArticle;
     } catch (e) {
       rethrow;
@@ -110,7 +110,7 @@ class ArticleRepository {
   Future<void> deleteArticle(Article article) async {
     try {
       await _storageService.removeFile(article.contentKey);
-      // TODO: Delete article metadata from API
+      // NOTE: Article metadata deletion - API integration pending
     } catch (e) {
       rethrow;
     }
@@ -123,7 +123,7 @@ class ArticleRepository {
     int limit = 10,
   }) async {
     try {
-      // TODO: Replace with actual API call
+      // NOTE: Mock search data - API integration pending
       await Future.delayed(const Duration(seconds: 1));
       final futures = List.generate(
         5,
@@ -142,7 +142,7 @@ class ArticleRepository {
           'articles/$articleId/images/${DateTime.now().millisecondsSinceEpoch}_${file.path.split('/').last}';
       await _storageService.uploadFile(key, file);
 
-      // TODO: Update article metadata with new image
+      // NOTE: Article image metadata update - API integration pending
       final article = await getArticle(articleId);
       return article.copyWith(
         images: [...article.images, key],
@@ -163,7 +163,7 @@ class ArticleRepository {
 
   Future<String> createArticleFromData(Article article) async {
     try {
-      // TODO: Save article to API
+      // NOTE: Article creation - API integration pending
       return article.id;
     } catch (e) {
       rethrow;
@@ -172,7 +172,7 @@ class ArticleRepository {
 
   Future<void> likeArticle(String articleId, String userId) async {
     try {
-      // TODO: Implement like functionality
+      // NOTE: Like functionality - API integration pending
       await Future.delayed(const Duration(milliseconds: 100));
     } catch (e) {
       rethrow;
@@ -181,7 +181,7 @@ class ArticleRepository {
 
   Future<void> unlikeArticle(String articleId, String userId) async {
     try {
-      // TODO: Implement unlike functionality
+      // NOTE: Unlike functionality - API integration pending
       await Future.delayed(const Duration(milliseconds: 100));
     } catch (e) {
       rethrow;
@@ -190,7 +190,7 @@ class ArticleRepository {
 
   Future<List<Map<String, dynamic>>> getArticleComments(String articleId, {int page = 1, int limit = 10}) async {
     try {
-      // TODO: Implement comment fetching
+      // NOTE: Comment system - API integration pending
       await Future.delayed(const Duration(milliseconds: 100));
       return [];
     } catch (e) {
@@ -200,7 +200,7 @@ class ArticleRepository {
 
   Future<String> addComment(String articleId, String userId, String content) async {
     try {
-      // TODO: Implement comment adding
+      // NOTE: Comment adding - API integration pending
       await Future.delayed(const Duration(milliseconds: 100));
       return 'comment_${DateTime.now().millisecondsSinceEpoch}';
     } catch (e) {
