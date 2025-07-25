@@ -70,3 +70,4 @@ amplifytools.xcconfig
 .amplify
 amplify_outputs*
 amplifyconfiguration*
+android-tools.zip
