@@ -179,7 +179,7 @@ class _ProfileScreenState extends State<ProfileScreen>
         color: AppTheme.cardBlack,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppTheme.pureWhite.withOpacity(0.1),
+          color: AppTheme.pureWhite.withValues(alpha: 0.1),
         ),
       ),
       child: Row(
@@ -236,7 +236,7 @@ class _ProfileScreenState extends State<ProfileScreen>
         labelColor: AppTheme.pureWhite,
         unselectedLabelColor: AppTheme.greyText,
         indicator: BoxDecoration(
-          color: AppTheme.pureWhite.withOpacity(0.1),
+          color: AppTheme.pureWhite.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(12),
         ),
         tabs: const [
@@ -293,7 +293,7 @@ class _ProfileScreenState extends State<ProfileScreen>
         color: AppTheme.cardBlack,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppTheme.pureWhite.withOpacity(0.1),
+          color: AppTheme.pureWhite.withValues(alpha: 0.1),
         ),
       ),
       child: Row(
@@ -302,7 +302,7 @@ class _ProfileScreenState extends State<ProfileScreen>
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              color: color.withOpacity(0.1),
+              color: color.withValues(alpha: 0.1),
               shape: BoxShape.circle,
             ),
             child: Icon(
@@ -381,7 +381,7 @@ class _ProfileScreenState extends State<ProfileScreen>
         color: AppTheme.cardBlack,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppTheme.pureWhite.withOpacity(0.1),
+          color: AppTheme.pureWhite.withValues(alpha: 0.1),
         ),
       ),
       child: Column(
@@ -485,8 +485,8 @@ class _ProfileScreenState extends State<ProfileScreen>
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: isUnlocked
-              ? AppTheme.cryptoGold.withOpacity(0.3)
-              : AppTheme.pureWhite.withOpacity(0.1),
+              ? AppTheme.cryptoGold.withValues(alpha: 0.3)
+              : AppTheme.pureWhite.withValues(alpha: 0.1),
         ),
       ),
       child: Column(

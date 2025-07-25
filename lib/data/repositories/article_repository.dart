@@ -152,6 +152,78 @@ class ArticleRepository {
     }
   }
 
+  // Add missing methods for API controllers
+  Future<Article?> getArticleById(String articleId) async {
+    try {
+      return await getArticle(articleId);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  Future<String> createArticleFromData(Article article) async {
+    try {
+      // TODO: Save article to API
+      return article.id;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<void> likeArticle(String articleId, String userId) async {
+    try {
+      // TODO: Implement like functionality
+      await Future.delayed(const Duration(milliseconds: 100));
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<void> unlikeArticle(String articleId, String userId) async {
+    try {
+      // TODO: Implement unlike functionality
+      await Future.delayed(const Duration(milliseconds: 100));
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<List<Map<String, dynamic>>> getArticleComments(String articleId, {int page = 1, int limit = 10}) async {
+    try {
+      // TODO: Implement comment fetching
+      await Future.delayed(const Duration(milliseconds: 100));
+      return [];
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<String> addComment(String articleId, String userId, String content) async {
+    try {
+      // TODO: Implement comment adding
+      await Future.delayed(const Duration(milliseconds: 100));
+      return 'comment_${DateTime.now().millisecondsSinceEpoch}';
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<List<Article>> getFeaturedArticles({int limit = 10}) async {
+    try {
+      return await getArticles(status: ArticleStatus.published, limit: limit);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<List<Article>> getUserArticles(String userId, {int page = 1, int limit = 10}) async {
+    try {
+      return await getArticles(authorId: userId, page: page, limit: limit);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   Future<Article> _getMockArticleAsync(String id) async {
     // Simulate network delay
     await Future.delayed(const Duration(milliseconds: 100));

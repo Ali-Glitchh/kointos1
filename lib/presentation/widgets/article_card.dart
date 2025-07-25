@@ -108,7 +108,7 @@ class ArticleCard extends StatelessWidget {
                           vertical: 4,
                         ),
                         decoration: BoxDecoration(
-                          color: AppTheme.pureWhite.withOpacity(0.1),
+                          color: AppTheme.pureWhite.withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Text(
@@ -177,7 +177,7 @@ class ArticleCard extends StatelessWidget {
                       // Author Avatar
                       CircleAvatar(
                         radius: 16,
-                        backgroundColor: AppTheme.pureWhite.withOpacity(0.1),
+                        backgroundColor: AppTheme.pureWhite.withValues(alpha: 0.1),
                         child: Text(
                           article.author[0].toUpperCase(),
                           style: AppTheme.caption.copyWith(

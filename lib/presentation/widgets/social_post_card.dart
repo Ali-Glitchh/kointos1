@@ -201,10 +201,10 @@ class _SocialPostCardState extends State<SocialPostCard>
                       vertical: 4,
                     ),
                     decoration: BoxDecoration(
-                      color: AppTheme.cryptoGold.withOpacity(0.2),
+                      color: AppTheme.cryptoGold.withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
-                        color: AppTheme.cryptoGold.withOpacity(0.5),
+                        color: AppTheme.cryptoGold.withValues(alpha: 0.5),
                         width: 1,
                       ),
                     ),
@@ -451,7 +451,7 @@ class _SocialPostCardState extends State<SocialPostCard>
                                 height: 32,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: AppTheme.greyText.withOpacity(0.3),
+                                  color: AppTheme.greyText.withValues(alpha: 0.3),
                                 ),
                                 child: const Icon(
                                   Icons.person,

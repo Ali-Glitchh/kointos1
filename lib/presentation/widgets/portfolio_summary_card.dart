@@ -31,7 +31,7 @@ class PortfolioSummaryCard extends StatelessWidget {
         gradient: LinearGradient(
           colors: [
             AppTheme.primaryColor,
-            AppTheme.primaryColor.withOpacity(0.8),
+            AppTheme.primaryColor.withValues(alpha: 0.8),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -39,7 +39,7 @@ class PortfolioSummaryCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.primaryColor.withOpacity(0.3),
+            color: AppTheme.primaryColor.withValues(alpha: 0.3),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),
@@ -72,8 +72,8 @@ class PortfolioSummaryCard extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
                   color: isPositive
-                      ? AppTheme.positiveChangeColor.withOpacity(0.3)
-                      : AppTheme.negativeChangeColor.withOpacity(0.3),
+                      ? AppTheme.positiveChangeColor.withValues(alpha: 0.3)
+                      : AppTheme.negativeChangeColor.withValues(alpha: 0.3),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: isPrivateMode
@@ -137,7 +137,7 @@ class PortfolioSummaryCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: isSelected
                         ? Colors.white
-                        : Colors.white.withOpacity(0.2),
+                        : Colors.white.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(

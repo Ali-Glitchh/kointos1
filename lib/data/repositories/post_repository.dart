@@ -129,6 +129,60 @@ class PostRepository {
     }
   }
 
+  // Add missing methods for API controllers
+  Future<Post?> getPostById(String postId) async {
+    try {
+      final response = await _apiService.get('/posts/$postId');
+      return Post.fromJson(response);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  Future<Post> updatePost(Post post) async {
+    try {
+      final response = await _apiService.put('/posts/${post.id}', post.toJson());
+      return Post.fromJson(response);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<List<Map<String, dynamic>>> getPostComments(String postId, {int page = 1, int limit = 10}) async {
+    try {
+      final response = await _apiService.get(
+        '/posts/$postId/comments',
+        queryParameters: {
+          'page': page,
+          'limit': limit,
+        },
+      );
+      return List<Map<String, dynamic>>.from(response['data']);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<String> addComment(String postId, String userId, String content) async {
+    try {
+      final response = await _apiService.post('/posts/$postId/comments', {
+        'userId': userId,
+        'content': content,
+      });
+      return response['id'];
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<List<Post>> getUserPosts(String userId, {int page = 1, int limit = 10}) async {
+    try {
+      return await getPosts(authorId: userId, page: page, limit: limit);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   Future<String> _uploadImage(String userId, String imagePath) async {
     try {
       final file = File(imagePath);

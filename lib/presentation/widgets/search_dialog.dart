@@ -180,7 +180,7 @@ class _SearchDialogState extends State<SearchDialog> {
                                     .textTheme
                                     .bodyMedium
                                     ?.color
-                                    ?.withOpacity(0.5),
+                                    ?.withValues(alpha: 0.5),
                               ),
                               const SizedBox(height: 16),
                               Text(
@@ -195,7 +195,7 @@ class _SearchDialogState extends State<SearchDialog> {
                                           .textTheme
                                           .bodyMedium
                                           ?.color
-                                          ?.withOpacity(0.7),
+                                          ?.withValues(alpha: 0.7),
                                     ),
                               ),
                             ],
@@ -278,7 +278,7 @@ class _SearchDialogState extends State<SearchDialog> {
         'By ${article.authorName}',
         style: TextStyle(
           color:
-              Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(0.7),
+              Theme.of(context).textTheme.bodyMedium?.color?.withValues(alpha: 0.7),
         ),
       ),
       trailing: Column(

@@ -69,7 +69,7 @@ class _SocialFeedScreenState extends State<SocialFeedScreen>
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: AppTheme.pureWhite.withOpacity(0.1),
+                    color: AppTheme.pureWhite.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Row(

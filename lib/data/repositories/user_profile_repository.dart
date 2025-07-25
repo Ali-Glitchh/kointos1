@@ -79,10 +79,10 @@ class UserProfileRepository {
     }
   }
 
-  Future<void> followUser(String userId) async {
+  Future<void> followUser(String currentUserId, String targetUserId) async {
     try {
       await _apiService.post(
-        '/users/$userId/follow',
+        '/users/$targetUserId/follow',
         {},
       );
     } catch (e) {
@@ -90,11 +90,10 @@ class UserProfileRepository {
     }
   }
 
-  Future<void> unfollowUser(String userId) async {
+  Future<void> unfollowUser(String currentUserId, String targetUserId) async {
     try {
-      await _apiService.post(
-        '/users/$userId/unfollow',
-        {},
+      await _apiService.delete(
+        '/users/$targetUserId/follow',
       );
     } catch (e) {
       rethrow;
@@ -116,6 +115,57 @@ class UserProfileRepository {
       final response = await _apiService.get('/users/$userId/following');
       final List<dynamic> data = response['data'];
       return data.map((json) => User.fromJson(json)).toList();
+    } catch (e) {
+      rethrow;
+    }
+  }
+  
+  Future<User?> getUserById(String userId) async {
+    try {
+      final response = await _apiService.get('/users/$userId');
+      return User.fromJson(response);
+    } catch (e) {
+      return null;
+    }
+  }
+  
+  Future<User> createUser(User user) async {
+    try {
+      final response = await _apiService.post('/users', user.toJson());
+      return User.fromJson(response);
+    } catch (e) {
+      rethrow;
+    }
+  }
+  
+  Future<void> updateUser(User user) async {
+    try {
+      await _apiService.put('/users/${user.id}', user.toJson());
+    } catch (e) {
+      rethrow;
+    }
+  }
+  
+  Future<void> deleteUser(String userId) async {
+    try {
+      await _apiService.delete('/users/$userId');
+    } catch (e) {
+      rethrow;
+    }
+  }
+  
+  Future<dynamic> getUserProfile(String userId) async {
+    try {
+      final response = await _apiService.get('/users/$userId/profile');
+      return response;
+    } catch (e) {
+      return null;
+    }
+  }
+  
+  Future<void> updateUserProfile(dynamic profile) async {
+    try {
+      await _apiService.put('/users/${profile.userId}/profile', profile.toJson());
     } catch (e) {
       rethrow;
     }

@@ -13,7 +13,7 @@ class CreatePostWidget extends StatelessWidget {
         color: AppTheme.cardBlack,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppTheme.pureWhite.withOpacity(0.1),
+          color: AppTheme.pureWhite.withValues(alpha: 0.1),
         ),
       ),
       child: Row(
@@ -49,7 +49,7 @@ class CreatePostWidget extends StatelessWidget {
                   color: AppTheme.secondaryBlack,
                   borderRadius: BorderRadius.circular(24),
                   border: Border.all(
-                    color: AppTheme.pureWhite.withOpacity(0.1),
+                    color: AppTheme.pureWhite.withValues(alpha: 0.1),
                   ),
                 ),
                 child: Text(

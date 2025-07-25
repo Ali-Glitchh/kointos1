@@ -226,7 +226,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
         side: BorderSide(
-          color: AppTheme.pureWhite.withOpacity(0.2),
+          color: AppTheme.pureWhite.withValues(alpha: 0.2),
           width: 1,
         ),
       ),
@@ -296,13 +296,13 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       color: isTopThree
-          ? AppTheme.pureWhite.withOpacity(0.05)
+          ? AppTheme.pureWhite.withValues(alpha: 0.05)
           : AppTheme.cardBlack,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
         side: isTopThree
             ? BorderSide(
-                color: _getRankColor(user.rank).withOpacity(0.3),
+                color: _getRankColor(user.rank).withValues(alpha: 0.3),
                 width: 1,
               )
             : BorderSide.none,
@@ -319,7 +319,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
             // User Avatar
             CircleAvatar(
               radius: 24,
-              backgroundColor: AppTheme.pureWhite.withOpacity(0.1),
+              backgroundColor: AppTheme.pureWhite.withValues(alpha: 0.1),
               child: Text(
                 user.avatar,
                 style: AppTheme.body1.copyWith(
@@ -371,7 +371,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
-                color: _getRankColor(user.rank).withOpacity(0.2),
+                color: _getRankColor(user.rank).withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Text(
@@ -398,7 +398,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
       width: 36,
       height: 36,
       decoration: BoxDecoration(
-        color: color.withOpacity(0.2),
+        color: color.withValues(alpha: 0.2),
         shape: BoxShape.circle,
         border: Border.all(
           color: color,

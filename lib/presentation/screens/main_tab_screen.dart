@@ -75,7 +75,7 @@ class _MainTabScreenState extends State<MainTabScreen>
           color: AppTheme.secondaryBlack,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.3),
+              color: Colors.black.withValues(alpha: 0.3),
               blurRadius: 16,
               offset: const Offset(0, -4),
             ),
@@ -104,7 +104,7 @@ class _MainTabScreenState extends State<MainTabScreen>
                 ),
                 decoration: BoxDecoration(
                   color: isSelected
-                      ? AppTheme.pureWhite.withOpacity(0.1)
+                      ? AppTheme.pureWhite.withValues(alpha: 0.1)
                       : Colors.transparent,
                   borderRadius: BorderRadius.circular(20),
                 ),

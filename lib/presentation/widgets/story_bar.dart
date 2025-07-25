@@ -35,7 +35,7 @@ class StoryBar extends StatelessWidget {
               color: AppTheme.cardBlack,
               shape: BoxShape.circle,
               border: Border.all(
-                color: AppTheme.pureWhite.withOpacity(0.2),
+                color: AppTheme.pureWhite.withValues(alpha: 0.2),
                 width: 2,
               ),
             ),

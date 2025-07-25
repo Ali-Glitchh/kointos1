@@ -37,7 +37,7 @@ class AppTheme {
         surface: surfaceColor,
       ),
       scaffoldBackgroundColor: backgroundColor,
-      cardTheme: const CardTheme(
+      cardTheme: const CardThemeData(
         color: cardColor,
         elevation: 0,
         shape: RoundedRectangleBorder(

@@ -139,7 +139,7 @@ class _FirstTimeTutorialState extends State<FirstTimeTutorial>
 
   Widget _buildTutorialOverlay() {
     return Scaffold(
-      backgroundColor: AppTheme.primaryBlack.withOpacity(0.98),
+      backgroundColor: AppTheme.primaryBlack.withValues(alpha: 0.98),
       body: SafeArea(
         child: Column(
           children: [
@@ -205,7 +205,7 @@ class _FirstTimeTutorialState extends State<FirstTimeTutorial>
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: step.gradient.colors.first.withOpacity(0.3),
+                        color: step.gradient.colors.first.withValues(alpha: 0.3),
                         blurRadius: 20,
                         spreadRadius: 5,
                       ),
@@ -227,10 +227,10 @@ class _FirstTimeTutorialState extends State<FirstTimeTutorial>
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
             decoration: BoxDecoration(
-              color: AppTheme.cardBlack.withOpacity(0.5),
+              color: AppTheme.cardBlack.withValues(alpha: 0.5),
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color: AppTheme.pureWhite.withOpacity(0.1),
+                color: AppTheme.pureWhite.withValues(alpha: 0.1),
               ),
             ),
             child: Text(
@@ -263,10 +263,10 @@ class _FirstTimeTutorialState extends State<FirstTimeTutorial>
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: AppTheme.cardBlack.withOpacity(0.3),
+              color: AppTheme.cardBlack.withValues(alpha: 0.3),
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
-                color: AppTheme.pureWhite.withOpacity(0.1),
+                color: AppTheme.pureWhite.withValues(alpha: 0.1),
               ),
             ),
             child: Column(
@@ -310,13 +310,13 @@ class _FirstTimeTutorialState extends State<FirstTimeTutorial>
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: AppTheme.cardBlack.withOpacity(0.8),
+        color: AppTheme.cardBlack.withValues(alpha: 0.8),
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(24),
           topRight: Radius.circular(24),
         ),
         border: Border.all(
-          color: AppTheme.pureWhite.withOpacity(0.1),
+          color: AppTheme.pureWhite.withValues(alpha: 0.1),
         ),
       ),
       child: Column(
@@ -338,7 +338,7 @@ class _FirstTimeTutorialState extends State<FirstTimeTutorial>
                       decoration: BoxDecoration(
                         color: isCompleted || isActive
                             ? AppTheme.pureWhite
-                            : AppTheme.greyText.withOpacity(0.3),
+                            : AppTheme.greyText.withValues(alpha: 0.3),
                         borderRadius: BorderRadius.circular(2),
                       ),
                     ),

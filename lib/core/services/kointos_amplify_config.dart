@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_api/amplify_api.dart';
@@ -20,7 +21,7 @@ class KointosAmplifyConfig {
       await Amplify.addPlugins([auth, api, storage]);
 
       // Configure Amplify with Gen 2 outputs
-      await Amplify.configure(amplifyConfig);
+      await Amplify.configure(json.encode(amplifyConfig));
       _isConfigured = true;
       LoggerService.info('Amplify Gen 2 configured successfully');
     } catch (e, stackTrace) {

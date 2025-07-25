@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  flutter:
+    image: cirrusci/flutter:latest
+    volumes:
+      - .:/app
+      - flutter_cache:/root/.pub-cache
+    working_dir: /app
+    ports:
+      - "8080:8080"  # API server port
+      - "9100:9100"  # Debug port for Flutter
+    environment:
+      - FLUTTER_ROOT=/home/cirrus/sdks/flutter
+    command: bash -c "flutter pub get && flutter pub run build_runner build --delete-conflicting-outputs && tail -f /dev/null"
+
+  api_server:
+    image: google/dart:latest
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "8080:8080"
+    command: bash -c "dart pub get && dart run bin/api_server.dart"
+    depends_on:
+      - flutter
+    environment:
+      - PORT=8080
+
+volumes:
+  flutter_cache:

@@ -119,11 +119,11 @@ class _EnhancedCryptoBotWidgetState extends State<EnhancedCryptoBotWidget>
                 color: AppTheme.cardBlack,
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: AppTheme.pureWhite.withOpacity(0.1),
+                  color: AppTheme.pureWhite.withValues(alpha: 0.1),
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.3),
+                    color: Colors.black.withValues(alpha: 0.3),
                     blurRadius: 20,
                     spreadRadius: 2,
                   ),
@@ -230,13 +230,13 @@ class _EnhancedCryptoBotWidgetState extends State<EnhancedCryptoBotWidget>
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
                                 borderSide: BorderSide(
-                                  color: AppTheme.pureWhite.withOpacity(0.1),
+                                  color: AppTheme.pureWhite.withValues(alpha: 0.1),
                                 ),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
                                 borderSide: BorderSide(
-                                  color: AppTheme.pureWhite.withOpacity(0.1),
+                                  color: AppTheme.pureWhite.withValues(alpha: 0.1),
                                 ),
                               ),
                               focusedBorder: OutlineInputBorder(
@@ -302,7 +302,7 @@ class _EnhancedCryptoBotWidgetState extends State<EnhancedCryptoBotWidget>
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: AppTheme.cryptoGold.withOpacity(0.3),
+                          color: AppTheme.cryptoGold.withValues(alpha: 0.3),
                           blurRadius: 12,
                           spreadRadius: 2,
                         ),
@@ -382,7 +382,7 @@ class _EnhancedCryptoBotWidgetState extends State<EnhancedCryptoBotWidget>
               decoration: BoxDecoration(
                 color: message.isBot
                     ? AppTheme.secondaryBlack
-                    : AppTheme.pureWhite.withOpacity(0.1),
+                    : AppTheme.pureWhite.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Text(

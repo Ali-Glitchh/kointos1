@@ -362,16 +362,16 @@ class _ArticlesScreenState extends State<ArticlesScreen>
           decoration: InputDecoration(
             hintText: 'Enter search terms...',
             hintStyle: AppTheme.body1
-                .copyWith(color: AppTheme.pureWhite.withOpacity(0.6)),
+                .copyWith(color: AppTheme.pureWhite.withValues(alpha: 0.6)),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide:
-                  BorderSide(color: AppTheme.pureWhite.withOpacity(0.3)),
+                  BorderSide(color: AppTheme.pureWhite.withValues(alpha: 0.3)),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide:
-                  BorderSide(color: AppTheme.pureWhite.withOpacity(0.3)),
+                  BorderSide(color: AppTheme.pureWhite.withValues(alpha: 0.3)),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
@@ -389,7 +389,7 @@ class _ArticlesScreenState extends State<ArticlesScreen>
             child: Text(
               'Cancel',
               style: AppTheme.body1
-                  .copyWith(color: AppTheme.pureWhite.withOpacity(0.7)),
+                  .copyWith(color: AppTheme.pureWhite.withValues(alpha: 0.7)),
             ),
           ),
         ],

@@ -1,0 +1,93 @@
+name: Build Kointos APK
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.32.7'
+        channel: 'stable'
+        
+    - name: Get dependencies
+      run: flutter pub get
+      
+    - name: Analyze code
+      run: flutter analyze
+      
+    - name: Run tests
+      run: flutter test --coverage
+      
+    - name: Build debug APK
+      run: flutter build apk --debug
+      
+    - name: Build release APK
+      run: flutter build apk --release
+      
+    - name: Build split APKs (smaller file sizes)
+      run: flutter build apk --split-per-abi --release
+      
+    - name: Upload debug APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: kointos-debug-apk
+        path: build/app/outputs/flutter-apk/app-debug.apk
+        
+    - name: Upload release APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: kointos-release-apk
+        path: build/app/outputs/flutter-apk/app-release.apk
+        
+    - name: Upload split APKs
+      uses: actions/upload-artifact@v4
+      with:
+        name: kointos-split-apks
+        path: build/app/outputs/flutter-apk/app-*-release.apk
+        
+    - name: Create Release
+      if: github.ref == 'refs/heads/main'
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v1.0.${{ github.run_number }}
+        name: Kointos Social Platform v1.0.${{ github.run_number }}
+        body: |
+          🎉 Kointos Social Platform Release
+          
+          ## 📱 Social Features
+          - ✅ Social feed with posts and interactions
+          - ✅ Article publishing system  
+          - ✅ User profiles and following
+          - ✅ Cryptocurrency portfolio tracking
+          - ✅ Gamification with points and badges
+          - ✅ Real-time social interactions
+          
+          ## 📥 Downloads
+          - **app-release.apk**: Universal APK (larger file)
+          - **app-arm64-v8a-release.apk**: Modern Android devices
+          - **app-armeabi-v7a-release.apk**: Older Android devices
+          - **app-x86_64-release.apk**: Android emulators/x86 devices
+          
+          Choose the appropriate APK for your device.
+        files: |
+          build/app/outputs/flutter-apk/app-release.apk
+          build/app/outputs/flutter-apk/app-*-release.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:kointos/api/services/api_startup.dart';
 import 'package:kointos/core/services/auth_service.dart';
 import 'package:kointos/core/services/kointos_amplify_config.dart';
 import 'package:kointos/core/services/service_locator.dart';
@@ -15,6 +18,20 @@ void main() async {
 
   // Configure Amplify
   await KointosAmplifyConfig.configureAmplify();
+  
+  // Start API server if running in debug mode or if specified via environment
+  if (Platform.environment.containsKey('START_API_SERVER') || 
+      const bool.fromEnvironment('dart.vm.product') == false) {
+    try {
+      final port = int.tryParse(Platform.environment['API_PORT'] ?? '8080') ?? 8080;
+      await startApiServer(port: port);
+      // ignore: avoid_print
+      print('API server started on port $port');
+    } catch (e) {
+      // ignore: avoid_print
+      print('Failed to start API server: $e');
+    }
+  }
 
   runApp(const KointosApp());
 }
